@@ -1,7 +1,0 @@
-{
-    "verbose": false,
-    "watch": [
-      "./src"
-    ],
-    "exec": "webpack --mode development && babel-node ./src/back/index.js"
-}

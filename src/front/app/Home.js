@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {Redirect} from 'react-router'
 import Grid from '@mui/material/Grid'
 import ProductCard from './ProductCard'
 import {readProducts} from '../api/ProductApi'
@@ -19,6 +20,8 @@ const Home = () => {
   const [second, setSecond] = useState(false)
 
   const [product, setProduct] = useState({})
+
+  const [redirect, setRedirect] = useState(false)
 
   const clickSubmit = (item) => {
 
@@ -122,6 +125,10 @@ const Home = () => {
 
       setOrder(aux)
 
+      if(aux.phone){
+        setRedirect(true)
+      }
+
     }
 
   }, [])
@@ -129,6 +136,7 @@ const Home = () => {
 
   return(
     <div>
+      {redirect && (<Redirect to={"/order/" + order._id}/>)}
       <Bar/>
       <Grid container spacing={2} padding={2}>
         {products.map((item, i) => {

@@ -2,9 +2,9 @@
   "name": "app-pc-test",
   "version": "1.0.0",
   "scripts": {
-    "front": "webpack --mode development --watch",
-    "back": "nodemon ./src/back --exec babel-node --watch ./src/back",
-    "start": "nodemon"
+    "front": "webpack --mode production",
+    "back": "babel ./src/back -d ./dist",
+    "start": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
